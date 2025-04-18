@@ -62,4 +62,62 @@ const rollAroundWallCap = (cap, wall) => {
         x: Math.cos(impactAngle + Math.PI - rotationAngle) * closestDistance,
         y: Math.sin(impactAngle + Math.PI - rotationAngle) * closestDistance
     };
+
+    const x = ball.x;
+    const y = ball.y;
+    const velocityX = ball.x - (cap.x + deltaFromCap.x);
+    const velocityY = ball.y - (cap.y + deltaFromCap.y);
+    const nextX = x + velocityX;
+    const nextY = y + velocityY;
+
+    return {x, y, velocityX, velocityY, nextX, nextY};
+    
+
+    // Variable that decreases the absoulte value of a number but keeps it's sign, doesn't go below abs 0
+    const slow = (num, difference ) => {
+        if (Math.abs(num) <= difference ) return 0;
+        if (num > difference) return num - difference;
+        return num + differencel
+
+    };
+
+    const mazeElement = document.getElementById("maze");
+    const joystickHeadElement = doucment.getElementById("joystick-head");
+    const noteElement = document.getElementById("note"); //Note the element for instructions and game won, game failed texts
+
+    let hardMode = false;
+    let previousTimestamp;
+    let gameInprogress;
+    let mouseStartX;
+    let mouseStartY;
+    let accelerationX;
+    let accelerationY;
+    let frictionX;
+    let frictionY;
+
+    const pathW = 25;
+    const wallW = 10;
+    const ballSize = 10;
+    const holeSize = 18;
+
+    const debugMode = false;
+
+    let balls = [];
+    let ballElements = [];
+    let holeElements = [];
+
+    resetGame();
+
+    //Draw balls for the first time
+    balls.forEach(({x, y}) => {
+        const ball = document.createElement("div");
+        ball.setAttribute("class", "ball");
+        ball.style.cssText = `left: ${x}px; top: ${y}px; `;
+
+        mazeElement.appendChild(ball);
+        ballElements.push(ball);
+    });
+
+    //Wall metadata
+    const wall = []
 }
