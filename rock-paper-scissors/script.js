@@ -121,6 +121,52 @@ function updateScore() {
 
 function updateScoreMessage(winner, playerSelection, computerSelection) {
     if (winner === 'player') {
-        scoreMessage.textContent = `${capitalize}
-    }
+        scoreMessage.textContent = `${capitalizeFirstLetter(
+          playerSelection
+        )} beats ${computerSelection.toLowerCase()}`
+        return
+      }
+      if (winner === 'computer') {
+        scoreMessage.textContent = `${capitalizeFirstLetter(
+          playerSelection
+        )} is beaten by ${computerSelection.toLowerCase()}`
+        return
+      }
+    
+      scoreMessage.textContent = `${capitalizeFirstLetter(
+        playerSelection
+      )} ties with ${computerSelection.toLowerCase()}`
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+}
+
+function openEndgameModal() {
+    endgameModal.classList.add('active')
+    overlay.classList.add('active') 
+}
+
+function closeEndgameModal () {
+    endgameModal.classList.remove('active')
+    overlay.classList.remove('active')
+}
+
+function setFinalMessage() {
+    return playerScore > computerScore
+    ? (endgameMsg.textContent = 'You won!!')
+    : (endgameModal.textContent = 'You lost...:((')
+}
+
+function restartGame() {
+    playerScore = 0
+    computerScore = 0
+    scoreInfo.textContent = 'Choose your desired weapon'
+    scoreMessage.textContent = 'First to score 10 points wins the game'
+    PlayerscorePara.textContent = 'Player: 0'
+    computerScorePara.textContent = 'Computer: 0'
+    playerSign.textContent = '?'
+    computerSign.textContent = '?'
+    endgameModal.classList.remove('active')
+    overlay.classList.remove('active')
 }
