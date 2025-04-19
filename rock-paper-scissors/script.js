@@ -54,4 +54,73 @@ const rockBtn = document.getElementById('rockBtn')
 const scissorBtn = document.getElementById('scissorBtn')
 const paperBtn = document.getElementById('paperBtn')
 const endgameModal = document.getElementById('endgameModal')
-const endgameMsg = document.getElementById('')
+const endgameMsg = document.getElementById('endgameMsg')
+const overlay = document.getElementById('overlay')
+const restartBtn = document.getElementById('restartBtn')
+
+rockBtn.addEventListener('click', () => handleClick('rock'))
+scissorBtn.addEventListener('click', () => handleClick('scissors'))
+paperBtn.addEventListener('click', () => handleClick('paper'))
+
+function handleClick(playerSelection) {
+    if(isGameOver()) {
+        openEndgameModal()
+        return
+    }
+
+    const computerSelection = getRandomChoice()
+    playRound(playerSelection, computerSelection)
+    updateChoices(playerSelection, computerSelection)
+
+    if (isGameOver()) {
+        openEndgameModal()
+        setFinalMessage()
+    }
+
+}
+
+function updateChoices(playerSelection, computerSelection) {
+    switch (playerSelection) {
+        case 'ROCK':
+            playerSign.textContent = '🤘'
+            break
+        case 'SCISSORS':
+            playerSign.textContent = '✂️'
+            break
+        case 'PAPER':
+            playerSign.textContent = '📄'
+            break
+    }
+
+    switch (computerSelection) {
+        case 'ROCK':
+            computerSign.textContent = '🤘'
+            break
+        case 'SCISSORS':
+            computerSign.textContent = '✂️'
+            break
+        case 'PAPER':
+            computerSign.textContent = '📄'
+            break
+    }
+}
+
+function updateScore() {
+    if (roundWinner === 'tie') {
+        scoreInfo.textContent = "It's a draw!!"
+    } else if (roundWinner === 'player') {
+        scoreInfo.textContent = 'You won!!!'
+    } else if (roundWinner === 'computer') {
+        scoreInfo.textContent = 'you lost :('
+    }
+
+    PlayerscorePara.textContent = `Player: ${playerScore}`
+    computerScorePara.textContent = `computer: ${computerScore}`
+
+}
+
+function updateScoreMessage(winner, playerSelection, computerSelection) {
+    if (winner === 'player') {
+        scoreMessage.textContent = `${capitalize}
+    }
+}
