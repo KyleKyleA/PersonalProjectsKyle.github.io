@@ -10,8 +10,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
         <link rel="short-icon" href="favicon.png">
-        </head>
-    <body>
+    </head>
+        <body>
         <header class="header">
             <h1 class="title">rock paper scissors</h1>
         </header>
@@ -25,10 +25,40 @@
                     <div class="sign" id="playerSign">?</div>
                     <p class="sign" id="playerScore">Player: 0</p>
                 </div>
-                <div class="score-box"></div>
+                <div class="score-box">
                     <div class="sign" id="computerSign">?</div>
                     <p class="sign" id="computerScore">Computer: 0</p>
             </div>
+            </div>
+            </div>
+            <div class="buttons">
+            <button class="btn btn-square" id="rockbtn">
+            <div class="sign">🤘</div>
+            </button>
+            <button class="btn btn-square" id="scissorsbtn">
+            <div class="sign">✂️</div>
+            </button>
+            <button class="btn btn-square" id="paperbtn">
+            <div class="sign">🪨</div>
+            </button>
+            </div>
         </main>
+    <footer class="footer">
+        <p>
+            Copyright ©
+            <script>
+                document.write(new Date().getFullYear());
+            </script>
+        </p>
+        <a href="https://github.com/michalosman" target="_blank">
+            <img src="github-log" src="github.mark.svg">
+        </a>
+    </footer>
+    <div class="modal" id="endgameModal">
+        <p class="modal-title" id="endgameMsg"></p>
+        <button class="btn btn-restart" id="restartBtn">Want to play again</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <script src="script.js"></script>
     </body>
 </html>
