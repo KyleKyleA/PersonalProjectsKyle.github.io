@@ -17,38 +17,33 @@
         <header class="header">
         <h1 class="title">rock paper scissors</h1>
         </header>
-        
-    <main class="main">
-        <div class="scoreboard">
-          <h2 class="score-info" id="scoreInfo">Choose your desired weapon</h2>
-          <h3 class="score-message" id="scoreMessage">
-            First person to score 10 points wins the game
-          </h3>
-          <div class="score-container">
-            <div class="score-box">
-            <div class="sign" id="playerSign">?</div>
-            <p class="sign" id="playerScore">Player: 0</p>
-          </div>
-          <div class="score-box">
-            <div class="sign" id="computerSign">?</div>
-            <p class="sign" id="computerScore">Computer: 0</p>
+        <main class="main">
+            <div class="scoreboard">
+              <h2 class="score-info" id="scoreInfo">Choose your desired weapon</h2>
+              <h3 class="score-message" id="scoreMessage">
+                First person to score 10 points wins the game
+              </h3>
+          
+              <!-- Wrap player and computer score sections together -->
+              <div class="score-row">
+                <div class="score-box">
+                  <div class="sign" id="playerSign">?</div>
+                  <p class="score-text" id="playerScore">Player: 0</p>
+                </div>
+                <div class="score-box">
+                  <div class="sign" id="computerSign">?</div>
+                  <p class="score-text" id="computerScore">Computer: 0</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-            
+          
             <div class="buttons">
-            <button class="btn btn-square" id="rockbtn">
-            <div class="sign">🤘</div>
-            </button>
-            <button class="btn btn-square" id="scissorsbtn">
-            <div class="sign">✂️</div>
-            </button>
-            <button class="btn btn-square" id="paperbtn">
-            <div class="sign">📄</div>
-            </button>
+              <button class="btn btn-square" id="rockbtn"><div class="sign">🤘</div></button>
+              <button class="btn btn-square" id="scissorsbtn"><div class="sign">✂️</div></button>
+              <button class="btn btn-square" id="paperbtn"><div class="sign">📄</div></button>
             </div>
-        </main>
-        
+          </main>
+          
         <footer class="footer">
         <p>
             Copyright ©
